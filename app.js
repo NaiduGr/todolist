@@ -30,22 +30,10 @@ const defaultTasks = [];
 app.get("/",function(request,response){
 
 
-    // console.log("today's date")
 
-    let toDayDate = new Date();
-    
-    let options = {
-        weekday: "long",
-        day: "numeric",
-        month: "long"
-    };
-
-    let day = toDayDate.toLocaleDateString("en-US",options);
-     
-
+   
      Task.find({}, function(err,foundTasks){
-        
-        response.render("list",{today: day , newTasks: foundTasks});
+        response.render("list",{newTasks: foundTasks});
         
      });
     
